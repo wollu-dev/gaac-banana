@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="프리미엄 바나나 - 자연이 준 완벽한 에너지">
+    <title>Premium Banana | 자연의 선물</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .lang-switcher a { padding: 0 5px; opacity: 0.5; }
+        .lang-switcher a.active { opacity: 1; font-weight: 800; color: var(--primary-dark); }
+        .lang-switcher { display: flex; align-items: center; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">BANANA<span>.</span></div>
+        <div class="menu-toggle">☰</div>
+        <ul class="nav-links">
+            <li><a href="#home">홈페이지</a></li>
+            <li><a href="#product">제품</a></li>
+            <li><a href="#story">스토리</a></li>
+            <li><a href="#contact">문의</a></li>
+            <li class="lang-switcher">
+                <a href="index.html" class="active">KO</a> | <a href="index-en.html">EN</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Banner (Hero Section) -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>The Perfect <span>Yellow</span></h1>
+            <p>자연이 준 완벽한 에너지. 달콤함과 영양이 가득한 프리미엄 바나나를 만나보세요.</p>
+            <div class="hero-buttons">
+                <a href="#product" class="btn btn-primary">구매하기</a>
+                <a href="#story" class="btn btn-outline">스토리 보기</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <!-- Background glow effect -->
+            <div class="glow"></div>
+            <img src="assets/banana.png" alt="Premium Banana" class="floating-banana">
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="product" class="features">
+        <div class="section-title">
+            <h2>Why Our Banana?</h2>
+            <p>매일 아침을 깨우는 특별한 이유</p>
+        </div>
+        <div class="feature-cards">
+            <div class="card">
+                <div class="icon-wrapper">
+                    <span class="icon">✨</span>
+                </div>
+                <h3>최고의 당도</h3>
+                <p>가장 맛있는 순간까지 기다려 수확한 자연 그대로의 달콤함.</p>
+            </div>
+            <div class="card">
+                <div class="icon-wrapper">
+                    <span class="icon">💪</span>
+                </div>
+                <h3>에너지 부스트</h3>
+                <p>바쁜 일상 속, 즉각적이고 건강한 에너지를 채워주는 영양 간식.</p>
+            </div>
+            <div class="card">
+                <div class="icon-wrapper">
+                    <span class="icon">🌱</span>
+                </div>
+                <h3>친환경 재배</h3>
+                <p>자연과 상생하는 지속 가능한 농법으로 재배된 안전한 먹거리.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story" class="story-section">
+        <div class="story-content">
+            <h2>바나나에 담긴 <span>진심</span></h2>
+            <p>우리는 단순히 과일을 파는 것이 아닙니다. 햇살과 바람, 그리고 농부의 땀방울이 만들어낸 자연의 예술 작품을 전달합니다. 가장 맛있는 노란색이 될 때까지 정성껏 키워낸 완벽한 바나나를 당신의 식탁에 올립니다.</p>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h2>BANANA.</h2>
+                <p>당신의 하루를 더 달콤하게.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: hello@premium-banana.com</p>
+                <p>Phone: 1588-0000</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Premium Banana. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Animations Script -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card, .section-title, .story-content').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
